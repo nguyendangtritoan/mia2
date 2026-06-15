@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.npm-cache/
+.DS_Store
+.npmrc
+*.log
+preview*.png
+public/qa/
+public/references/*.png
+public/assets/index-B9AjH4BM.js
+public/Bloom Nursery.png
+public/Minerva.png
+public/Referral new.png
+public/cineflow.png
+public/kyc.png
+public/moj.png
