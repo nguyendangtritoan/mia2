@@ -9,3 +9,4 @@ When implementing from a selected generated mock, treat that image as the source
 ## Portfolio Decisions
 
 - Employer reference documents should appear as compact responsive PNG cards in the moving testimonial row; opening a card should show a larger closable preview without breaking mobile layout.
+- Photography gallery media should live together in `public/photography`; update `src/content.js` `photographyAssets` when adding or removing gallery resources.
