@@ -4,7 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "generate:photography": "node scripts/generate-photography-assets.mjs",
+    "predev": "npm run generate:photography",
     "dev": "vite --host 127.0.0.1",
+    "prebuild": "npm run generate:photography",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1"
   },

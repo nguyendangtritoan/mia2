@@ -685,27 +685,33 @@ function HomePage({ copy, navigateSection, navigatePage, setCursorLabel }) {
 }
 
 function PhotographyPage({ copy }) {
+  const hasPhotographyAssets = photographyAssets.length > 0;
+
   return (
     <main className="photo-page">
       <header className="photo-header">
         <h1 className="photo-title">{copy.photography.title}</h1>
         <p className="photo-sub">{copy.photography.subtitle}</p>
       </header>
-      <div className="photo-masonry">
-        {photographyAssets.map((asset, index) => (
-          <figure
-            className="photo-item"
-            key={asset.src}
-            style={{ animationDelay: `${index * 40}ms` }}
-          >
-            {asset.type === "video" ? (
-              <video src={withBasePath(asset.src)} aria-label={asset.alt} controls muted playsInline preload="metadata" />
-            ) : (
-              <img src={withBasePath(asset.src)} alt={asset.alt} loading="lazy" />
-            )}
-          </figure>
-        ))}
-      </div>
+      {hasPhotographyAssets ? (
+        <div className="photo-masonry">
+          {photographyAssets.map((asset, index) => (
+            <figure
+              className="photo-item"
+              key={asset.src}
+              style={{ animationDelay: `${index * 40}ms` }}
+            >
+              {asset.type === "video" ? (
+                <video src={withBasePath(asset.src)} aria-label={asset.alt} controls muted playsInline preload="metadata" />
+              ) : (
+                <img src={withBasePath(asset.src)} alt={asset.alt} loading="lazy" />
+              )}
+            </figure>
+          ))}
+        </div>
+      ) : (
+        <p className="photo-empty-state">{copy.photography.empty}</p>
+      )}
     </main>
   );
 }

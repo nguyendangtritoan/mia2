@@ -353,10 +353,38 @@ body,
 
 .photo-item {
   margin: 0 0 20px;
+  background: #fff;
+}
+
+.photo-item img,
+.photo-item video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #f8f6f0;
 }
 
 .photo-item video {
   background: #0a0a0c;
+}
+
+.photo-empty-state {
+  max-width: min(760px, calc(100vw - 48px));
+  min-height: 32vh;
+  margin: 24px auto 0;
+  padding: clamp(42px, 7vw, 88px) 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  text-align: center;
+  font-family: Happy Monkey, Poppins, sans-serif;
+  font-size: clamp(22px, 4vw, 42px);
+  line-height: 1.25;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: #fffffff0;
+  box-shadow: 0 24px 80px #14141e14;
 }
 
 .nav-pill-link:focus-visible,
