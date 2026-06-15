@@ -6,6 +6,33 @@ export const commonLinks = {
   resume: "/assets/CV_PhanMyAnhNguyen.pdf",
 };
 
+const boehringerSamples = [
+  {
+    image: "/boehringer-samples/mso-announcement.jpeg",
+    alt: "Boehringer Ingelheim MSO announcement template",
+    title: "MSO Announcement",
+    meta: "Quality systems communication template",
+  },
+  {
+    image: "/boehringer-samples/mso-newsletter.jpeg",
+    alt: "Boehringer Ingelheim MSO newsletter layout",
+    title: "MSO Newsletter",
+    meta: "Newsletter concept for quality-system updates",
+  },
+  {
+    image: "/boehringer-samples/qms-portal.png",
+    alt: "Boehringer Ingelheim QMS portal landing page",
+    title: "QMS Portal",
+    meta: "Central portal concept for MSO resources",
+  },
+  {
+    image: "/boehringer-samples/mso-quiz.png",
+    alt: "Boehringer Ingelheim MSO quiz screen",
+    title: "MSO Quiz Screen",
+    meta: "Interactive awareness concept for the MSO network",
+  },
+];
+
 export const photographyAssets = [
   { type: "image", src: "/assets/IMG_2503-CvsdpCxd.jpeg", alt: "Street photography detail" },
   { type: "image", src: "/assets/IMG_0787-Dvl0i-nk.jpeg", alt: "Travel photography scene" },
@@ -40,8 +67,10 @@ const enProjects = [
     eyebrow: "Boehringer Ingelheim · UX/UI Design Intern",
     title: "Restructuring a QMS portal for clearer quality management.",
     body: "Analyzed and reorganized QMS intranet pages, then shaped a more user-friendly portal concept for quality-management content and internal access.",
-    cta: "Discuss this work",
+    cta: "View work",
     href: "#contact",
+    sampleGalleryTitle: "Boehringer work samples",
+    samples: boehringerSamples,
     side: "left",
   },
   {
@@ -73,8 +102,10 @@ const deProjects = [
     eyebrow: "Boehringer Ingelheim · UX/UI Design Praktikantin",
     title: "Ein QMS-Portal klarer und nutzerfreundlicher strukturieren.",
     body: "Analyse und Neustrukturierung von QMS-Intranetseiten sowie Gestaltung eines nutzerfreundlicheren Portalkonzepts für Qualitätsmanagement-Inhalte.",
-    cta: "Projekt besprechen",
+    cta: "Arbeit ansehen",
     href: "#contact",
+    sampleGalleryTitle: "Boehringer Arbeitsproben",
+    samples: boehringerSamples,
     side: "left",
   },
   {

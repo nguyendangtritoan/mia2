@@ -288,15 +288,128 @@ function SectionHeading({ eyebrow, title, subtitle, headingId }) {
   );
 }
 
-function ProjectRow({ project, navigateSection, setCursorLabel }) {
+function WorkSampleLightbox({ gallery, setGallery }) {
+  const sampleCount = gallery?.samples?.length ?? 0;
+  const selectedSample = sampleCount ? gallery.samples[gallery.index] : null;
+
+  const moveSample = (direction) => {
+    setGallery((currentGallery) => {
+      const currentCount = currentGallery?.samples?.length ?? 0;
+      if (!currentCount) {
+        return currentGallery;
+      }
+
+      return {
+        ...currentGallery,
+        index: (currentGallery.index + direction + currentCount) % currentCount,
+      };
+    });
+  };
+
+  useEffect(() => {
+    if (!gallery) {
+      return undefined;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setGallery(null);
+      }
+
+      if (event.key === "ArrowLeft") {
+        moveSample(-1);
+      }
+
+      if (event.key === "ArrowRight") {
+        moveSample(1);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [gallery, setGallery]);
+
+  if (!gallery || !selectedSample) {
+    return null;
+  }
+
+  return (
+    <div
+      className="work-sample-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label={gallery.title}
+      onClick={() => setGallery(null)}
+    >
+      <button
+        type="button"
+        className="work-sample-close"
+        aria-label="Close work sample preview"
+        onClick={(event) => {
+          event.stopPropagation();
+          setGallery(null);
+        }}
+      >
+        ×
+      </button>
+      <figure className="work-sample-panel" onClick={(event) => event.stopPropagation()}>
+        <div className="work-sample-frame">
+          {sampleCount > 1 && (
+            <button
+              type="button"
+              className="work-sample-nav work-sample-nav-prev"
+              aria-label="Previous work sample"
+              onClick={() => moveSample(-1)}
+            >
+              ‹
+            </button>
+          )}
+          <img className="work-sample-image" src={withBasePath(selectedSample.image)} alt={selectedSample.alt} />
+          {sampleCount > 1 && (
+            <button
+              type="button"
+              className="work-sample-nav work-sample-nav-next"
+              aria-label="Next work sample"
+              onClick={() => moveSample(1)}
+            >
+              ›
+            </button>
+          )}
+        </div>
+        <figcaption className="work-sample-caption">
+          <span className="work-sample-kicker">{gallery.title}</span>
+          <span className="work-sample-title">{selectedSample.title}</span>
+          <span className="work-sample-meta">{selectedSample.meta}</span>
+          <span className="work-sample-counter">{gallery.index + 1} / {sampleCount}</span>
+        </figcaption>
+      </figure>
+    </div>
+  );
+}
+
+function ProjectRow({ project, navigateSection, setCursorLabel, onOpenSamples }) {
   const [rowRef, isVisible] = useInView({ threshold: 0.22 });
   const isReverse = project.side === "right";
-  const isExternal = isExternalLink(project.href);
+  const hasSamples = Boolean(project.samples?.length);
+  const projectHref = hasSamples ? "#work" : project.href;
+  const isExternal = isExternalLink(projectHref);
 
   const handleProjectClick = (event) => {
-    if (project.href.startsWith("#")) {
+    if (hasSamples) {
       event.preventDefault();
-      navigateSection(project.href.slice(1));
+      onOpenSamples(project);
+      return;
+    }
+
+    if (projectHref.startsWith("#")) {
+      event.preventDefault();
+      navigateSection(projectHref.slice(1));
     }
   };
 
@@ -304,7 +417,7 @@ function ProjectRow({ project, navigateSection, setCursorLabel }) {
     <article ref={rowRef} className={`cs-row cs-row-anim ${isVisible ? "cs-row-visible" : ""}`}>
       <a
         className="cs-row-link"
-        href={project.href}
+        href={projectHref}
         target={isExternal ? "_blank" : undefined}
         rel={isExternal ? "noreferrer" : undefined}
         onClick={handleProjectClick}
@@ -329,6 +442,16 @@ function ProjectRow({ project, navigateSection, setCursorLabel }) {
 }
 
 function CaseStudies({ copy, navigateSection, setCursorLabel }) {
+  const [sampleGallery, setSampleGallery] = useState(null);
+
+  const openSamples = (project) => {
+    setSampleGallery({
+      title: project.sampleGalleryTitle ?? project.eyebrow,
+      samples: project.samples,
+      index: 0,
+    });
+  };
+
   return (
     <section id="work" className="case-studies-section" aria-labelledby="work-heading">
       <div className="container">
@@ -345,10 +468,12 @@ function CaseStudies({ copy, navigateSection, setCursorLabel }) {
               project={project}
               navigateSection={navigateSection}
               setCursorLabel={setCursorLabel}
+              onOpenSamples={openSamples}
             />
           ))}
         </div>
       </div>
+      <WorkSampleLightbox gallery={sampleGallery} setGallery={setSampleGallery} />
     </section>
   );
 }
