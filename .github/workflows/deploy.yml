@@ -33,7 +33,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_BASE_PATH: /mia2/
+          VITE_BASE_PATH: /
 
       - name: Add photography route fallback
         run: |
