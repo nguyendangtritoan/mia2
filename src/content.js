@@ -1,4 +1,4 @@
-export { photographyAssets } from "./photography-assets.generated.js";
+export { photographyAssets } from "virtual:photography-assets";
 
 export const LANGUAGES = ["en", "de"];
 

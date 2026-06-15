@@ -9,4 +9,4 @@ When implementing from a selected generated mock, treat that image as the source
 ## Portfolio Decisions
 
 - Employer reference documents should appear as compact responsive PNG cards in the moving testimonial row; opening a card should show a larger closable preview without breaking mobile layout.
-- Photography gallery media should live together in `public/photography`; `npm run build` generates `src/photography-assets.generated.js`, so adding or removing supported media there should not require editing source code.
+- Photography gallery images should live together in `public/photography`; Vite scans supported image files there during dev/build, so adding or removing images should not require editing source code.

@@ -684,8 +684,44 @@ function HomePage({ copy, navigateSection, navigatePage, setCursorLabel }) {
   );
 }
 
+function PhotoAssetItem({ asset, index, onAssetError }) {
+  const [hasError, setHasError] = useState(false);
+
+  const handleAssetError = () => {
+    setHasError(true);
+    onAssetError(asset.src);
+  };
+
+  if (hasError) {
+    return null;
+  }
+
+  return (
+    <figure
+      className="photo-item"
+      style={{ animationDelay: `${index * 40}ms` }}
+    >
+      <img src={withBasePath(asset.src)} alt={asset.alt} loading="lazy" onError={handleAssetError} />
+    </figure>
+  );
+}
+
 function PhotographyPage({ copy }) {
-  const hasPhotographyAssets = photographyAssets.length > 0;
+  const [failedAssets, setFailedAssets] = useState(() => new Set());
+  const visibleAssets = photographyAssets.filter((asset) => !failedAssets.has(asset.src));
+  const hasPhotographyAssets = visibleAssets.length > 0;
+
+  const handleAssetError = (src) => {
+    setFailedAssets((currentFailedAssets) => {
+      if (currentFailedAssets.has(src)) {
+        return currentFailedAssets;
+      }
+
+      const nextFailedAssets = new Set(currentFailedAssets);
+      nextFailedAssets.add(src);
+      return nextFailedAssets;
+    });
+  };
 
   return (
     <main className="photo-page">
@@ -695,18 +731,13 @@ function PhotographyPage({ copy }) {
       </header>
       {hasPhotographyAssets ? (
         <div className="photo-masonry">
-          {photographyAssets.map((asset, index) => (
-            <figure
-              className="photo-item"
+          {visibleAssets.map((asset, index) => (
+            <PhotoAssetItem
               key={asset.src}
-              style={{ animationDelay: `${index * 40}ms` }}
-            >
-              {asset.type === "video" ? (
-                <video src={withBasePath(asset.src)} aria-label={asset.alt} controls muted playsInline preload="metadata" />
-              ) : (
-                <img src={withBasePath(asset.src)} alt={asset.alt} loading="lazy" />
-              )}
-            </figure>
+              asset={asset}
+              index={index}
+              onAssetError={handleAssetError}
+            />
           ))}
         </div>
       ) : (
