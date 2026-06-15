@@ -24,7 +24,6 @@ export const photographyAssets = [
   { type: "image", src: "/assets/IMG_3470-BO1H4poE.jpeg", alt: "Travel and street detail" },
   { type: "image", src: "/assets/IMG_4776-eIg9BBuG.jpeg", alt: "Creative photography frame" },
   { type: "image", src: "/assets/IMG_4848-BBtRXr_S.jpeg", alt: "Visual storytelling image" },
-  { type: "video", src: "/assets/RPReplay_Final1704610402-DKbkUgRN.mov", alt: "Edited social media video" },
   { type: "image", src: "/assets/IMG_5509-MhjDOGP_.jpeg", alt: "Personal creative photograph" },
   { type: "image", src: "/assets/IMG_8120-CRQDwZDz.jpeg", alt: "Photography gallery image" },
   { type: "image", src: "/assets/IMG_8185-DST2-spU.jpeg", alt: "Photography gallery moment" },
