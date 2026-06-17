@@ -398,7 +398,8 @@ function ProjectRow({ project, navigateSection, setCursorLabel, onOpenSamples })
   const isReverse = project.side === "right";
   const hasSamples = Boolean(project.samples?.length);
   const projectHref = hasSamples ? "#work" : project.href;
-  const isExternal = isExternalLink(projectHref);
+  const shouldOpenNewTab = isExternalLink(projectHref) || isDownloadLink(projectHref);
+  const displayHref = projectHref.startsWith("/") ? withBasePath(projectHref) : projectHref;
 
   const handleProjectClick = (event) => {
     if (hasSamples) {
@@ -417,9 +418,9 @@ function ProjectRow({ project, navigateSection, setCursorLabel, onOpenSamples })
     <article ref={rowRef} className={`cs-row cs-row-anim ${isVisible ? "cs-row-visible" : ""}`}>
       <a
         className="cs-row-link"
-        href={projectHref}
-        target={isExternal ? "_blank" : undefined}
-        rel={isExternal ? "noreferrer" : undefined}
+        href={displayHref}
+        target={shouldOpenNewTab ? "_blank" : undefined}
+        rel={shouldOpenNewTab ? "noreferrer" : undefined}
         onClick={handleProjectClick}
         onPointerEnter={() => setCursorLabel(project.cta)}
         onPointerLeave={() => setCursorLabel(null)}

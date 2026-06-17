@@ -54,8 +54,8 @@ const enProjects = [
     eyebrow: "Volkswagen AG · Internal Communication Platform",
     title: "Designing Entgelt-Wiki for internal communication.",
     body: "Supported an internal compensation-wiki rollout through usage analysis, a survey with around 100 participants, documentation, publishing, and intranet design implementation.",
-    cta: "Discuss this work",
-    href: "#contact",
+    cta: "View work",
+    href: "/assets/vw-platform.pdf",
     side: "right",
   },
   {
@@ -89,8 +89,8 @@ const deProjects = [
     eyebrow: "Volkswagen AG · Interne Kommunikationsplattform",
     title: "Entgelt-Wiki als interne Kommunikationsplattform gestalten.",
     body: "Unterstützung des Rollouts durch Nutzungsanalyse, eine Umfrage mit rund 100 Teilnehmenden, Dokumentation, Publishing und Umsetzung im VW-Intranet.",
-    cta: "Projekt besprechen",
-    href: "#contact",
+    cta: "Arbeit ansehen",
+    href: "/assets/vw-platform.pdf",
     side: "right",
   },
   {
