@@ -122,12 +122,12 @@ body,
 .playground-section {
   width: 100% !important;
   margin-left: 0 !important;
-  margin-top: -180px !important;
+  margin-top: clamp(-96px, -4vw, -48px) !important;
 }
 
 .case-studies-section {
   margin-top: 0 !important;
-  padding-bottom: 0 !important;
+  padding-bottom: clamp(112px, 7vw, 160px) !important;
 }
 
 @media (width > 640px) {
@@ -137,6 +137,16 @@ body,
 
   .case-studies-section {
     padding-top: 48px !important;
+  }
+}
+
+@media (width > 1500px) {
+  .playground-section {
+    margin-top: -96px !important;
+  }
+
+  .case-studies-section {
+    padding-bottom: 176px !important;
   }
 }
 
@@ -398,8 +408,12 @@ body,
 }
 
 @media (width <= 640px) {
+  .case-studies-section {
+    padding-bottom: 56px !important;
+  }
+
   .playground-section {
-    margin-top: -72px !important;
+    margin-top: -44px !important;
   }
 
   .nav-pill-divider {
