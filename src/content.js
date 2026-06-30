@@ -5,7 +5,9 @@ export const LANGUAGES = ["en", "de"];
 export const commonLinks = {
   email: "mailto:nguyenphanmyanh@gmail.com",
   portfolio: "https://www.myanh.de",
-  resume: "/assets/CV_PhanMyAnhNguyen.pdf",
+  resume: "/assets/phan-my-anh-nguyen-resume-en.pdf",
+  resumeEn: "/assets/phan-my-anh-nguyen-resume-en.pdf",
+  resumeDe: "/assets/phan-my-anh-nguyen-lebenslauf-de.pdf",
 };
 
 const boehringerSamples = [
@@ -231,7 +233,7 @@ export const content = {
       links: [
         { label: "Portfolio", href: commonLinks.portfolio },
         { label: "Email", href: commonLinks.email },
-        { label: "Resume", href: commonLinks.resume },
+        { label: "Resume", href: commonLinks.resumeEn },
       ],
     },
     photography: {
@@ -365,7 +367,7 @@ export const content = {
       links: [
         { label: "Portfolio", href: commonLinks.portfolio },
         { label: "E-Mail", href: commonLinks.email },
-        { label: "Lebenslauf", href: commonLinks.resume },
+        { label: "Lebenslauf", href: commonLinks.resumeDe },
       ],
     },
     photography: {
