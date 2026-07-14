@@ -130,6 +130,11 @@ body,
   padding-bottom: clamp(112px, 7vw, 160px) !important;
 }
 
+.cs-row-eyebrow {
+  font-size: clamp(13px, 1vw, 15px) !important;
+  line-height: 1.45;
+}
+
 @media (width > 640px) {
   .hs {
     height: 100vh !important;
@@ -410,6 +415,10 @@ body,
 @media (width <= 640px) {
   .case-studies-section {
     padding-bottom: 56px !important;
+  }
+
+  .cs-row-eyebrow {
+    font-size: 13px !important;
   }
 
   .playground-section {

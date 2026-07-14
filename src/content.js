@@ -5,6 +5,7 @@ export const LANGUAGES = ["en", "de"];
 export const commonLinks = {
   email: "mailto:nguyenphanmyanh@gmail.com",
   portfolio: "https://www.myanh.de",
+  linkedin: "https://www.linkedin.com/in/myanh02/",
   resume: "/assets/phan-my-anh-nguyen-resume-en.pdf",
   resumeEn: "/assets/phan-my-anh-nguyen-resume-en.pdf",
   resumeDe: "/assets/phan-my-anh-nguyen-lebenslauf-de.pdf",
@@ -53,7 +54,7 @@ const enProjects = [
   {
     image: "/volkswagen.png",
     alt: "Volkswagen Entgelt-Wiki internal platform project visual",
-    eyebrow: "Volkswagen AG · Internal Communication Platform",
+    eyebrow: "Volkswagen AG · UX/UI Designer - Internal Platform",
     title: "Designing Entgelt-Wiki for internal communication.",
     body: "Supported an internal compensation-wiki rollout through usage analysis, a survey with around 100 participants, documentation, publishing, and intranet design implementation.",
     cta: "View work",
@@ -88,7 +89,7 @@ const deProjects = [
   {
     image: "/volkswagen.png",
     alt: "Volkswagen Entgelt-Wiki Projektvisual",
-    eyebrow: "Volkswagen AG · Interne Kommunikationsplattform",
+    eyebrow: "Volkswagen AG · UX/UI Designer - Internal Platform",
     title: "Entgelt-Wiki als interne Kommunikationsplattform gestalten.",
     body: "Unterstützung des Rollouts durch Nutzungsanalyse, eine Umfrage mit rund 100 Teilnehmenden, Dokumentation, Publishing und Umsetzung im VW-Intranet.",
     cta: "Arbeit ansehen",
@@ -231,7 +232,7 @@ export const content = {
       copyright: "© 2026 Phan My Anh Nguyen",
       tagline: "Frankfurt am Main · UX/UI Designer",
       links: [
-        { label: "Portfolio", href: commonLinks.portfolio },
+        { label: "LinkedIn", href: commonLinks.linkedin },
         { label: "Email", href: commonLinks.email },
         { label: "Resume", href: commonLinks.resumeEn },
       ],
@@ -365,7 +366,7 @@ export const content = {
       copyright: "© 2026 Phan My Anh Nguyen",
       tagline: "Frankfurt am Main · UX/UI Designerin",
       links: [
-        { label: "Portfolio", href: commonLinks.portfolio },
+        { label: "LinkedIn", href: commonLinks.linkedin },
         { label: "E-Mail", href: commonLinks.email },
         { label: "Lebenslauf", href: commonLinks.resumeDe },
       ],
