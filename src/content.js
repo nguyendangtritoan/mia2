@@ -133,7 +133,7 @@ export const content = {
     },
     ticker: ["UX/UI Design", "User Research", "Wireframing", "Prototyping", "SharePoint", "Intranet UX", "Design Systems", "HTML/CSS"],
     work: {
-      eyebrow: "Selected experience",
+      eyebrow: "",
       title: "Design work across intranets, platforms, and practical UX systems.",
       subtitle: "",
       projects: enProjects,
@@ -267,7 +267,7 @@ export const content = {
     },
     ticker: ["UX/UI Design", "User Research", "Wireframing", "Prototyping", "SharePoint", "Intranet UX", "Design Systems", "HTML/CSS"],
     work: {
-      eyebrow: "Ausgewählte Erfahrung",
+      eyebrow: "",
       title: "Designarbeit für Intranets, Plattformen und praktische UX-Systeme.",
       subtitle: "",
       projects: deProjects,

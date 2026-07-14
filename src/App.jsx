@@ -281,7 +281,7 @@ function Hero({ copy, navigateSection, setCursorLabel }) {
 function SectionHeading({ eyebrow, title, subtitle, headingId }) {
   return (
     <Reveal className="section-heading">
-      <p className="section-eyebrow">{eyebrow}</p>
+      {eyebrow && <p className="section-eyebrow">{eyebrow}</p>}
       <h2 id={headingId} className="section-h2">{title}</h2>
       {subtitle && <p className="section-sub">{subtitle}</p>}
     </Reveal>
